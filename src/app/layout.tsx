@@ -4,7 +4,7 @@ import CommandPalette from '@/components/CommandPalette';
 
 export const metadata: Metadata = {
   title: 'TONY Board',
-  description: 'Task management for Gradient's AI team',
+  description: 'Task management for Gradient AI team',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
