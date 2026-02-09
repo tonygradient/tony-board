@@ -105,7 +105,7 @@ export default function ActivitiesPage() {
               style={{ color: 'var(--text-primary)' }}
             >
               <span className="cmd-prefix">$</span>
-              <span>jarvis-board</span>
+              <span>tony-board</span>
             </h1>
           </div>
 

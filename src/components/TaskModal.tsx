@@ -462,7 +462,7 @@ export default function TaskModal({ task, onClose, onUpdate, onDelete, onRefresh
               <textarea
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                placeholder="Add a comment... (use @ash or @jarvis to mention)"
+                placeholder="Add a comment... (use @ash or @tony to mention)"
                 rows={2}
                 className="input flex-1"
                 onKeyDown={(e) => {

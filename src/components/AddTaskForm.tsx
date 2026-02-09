@@ -169,7 +169,7 @@ export default function AddTaskForm({ onClose, onCreate }: Props) {
               </div>
               <div>
                 <label className="text-xs mb-1.5 block" style={{ color: 'var(--text-muted)' }}>
-                  ETA (when Jarvis will work on it)
+                  ETA (when TONY will work on it)
                 </label>
                 <input
                   type="date"
