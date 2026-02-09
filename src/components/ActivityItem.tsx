@@ -6,14 +6,15 @@ type Props = {
   activity: Activity;
 };
 
+// Activity colors — TONY Board design system
 const actionLabels: Record<string, { label: string; icon: string; color: string }> = {
-  'task.create': { label: 'Created task', icon: '✨', color: '#10b981' },
-  'task.update': { label: 'Updated task', icon: '✏️', color: '#3b82f6' },
-  'task.status_change': { label: 'Changed status', icon: '🔄', color: '#8b5cf6' },
-  'task.delete': { label: 'Deleted task', icon: '🗑️', color: '#ef4444' },
-  'file.write': { label: 'Wrote file', icon: '📝', color: '#f59e0b' },
-  'browser.navigate': { label: 'Navigated browser', icon: '🌐', color: '#06b6d4' },
-  'message.send': { label: 'Sent message', icon: '💬', color: '#ec4899' },
+  'task.create': { label: 'Created task', icon: '✨', color: '#86efac' },
+  'task.update': { label: 'Updated task', icon: '✏️', color: '#93b4ff' },
+  'task.status_change': { label: 'Changed status', icon: '🔄', color: '#93b4ff' },
+  'task.delete': { label: 'Deleted task', icon: '🗑️', color: '#fca5a5' },
+  'file.write': { label: 'Wrote file', icon: '📝', color: '#ffb088' },
+  'browser.navigate': { label: 'Navigated browser', icon: '🌐', color: '#93b4ff' },
+  'message.send': { label: 'Sent message', icon: '💬', color: '#ffb088' },
 };
 
 function formatDate(dateStr: string): string {
@@ -36,7 +37,7 @@ export default function ActivityItem({ activity }: Props) {
   const actionInfo = actionLabels[activity.action] || { 
     label: activity.action, 
     icon: '📌', 
-    color: '#6b7280' 
+    color: '#a1a1aa' 
   };
 
   let details: Record<string, any> = {};

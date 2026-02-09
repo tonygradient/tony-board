@@ -9,27 +9,37 @@ type Props = {
   isDragging?: boolean;
 };
 
-// Tag colors
+// Tag colors — TONY Board design system
 const tagColors: Record<string, { bg: string; text: string }> = {
-  learnings: { bg: 'rgba(139, 92, 246, 0.2)', text: '#a78bfa' },
-  polymarket: { bg: 'rgba(6, 182, 212, 0.2)', text: '#22d3ee' },
-  'side-projects': { bg: 'rgba(16, 185, 129, 0.2)', text: '#34d399' },
-  stravix: { bg: 'rgba(245, 158, 11, 0.2)', text: '#fbbf24' },
-  coding: { bg: 'rgba(236, 72, 153, 0.2)', text: '#f472b6' },
-  workflow: { bg: 'rgba(99, 102, 241, 0.2)', text: '#818cf8' },
-  bug: { bg: 'rgba(239, 68, 68, 0.2)', text: '#f87171' },
-  feature: { bg: 'rgba(34, 197, 94, 0.2)', text: '#4ade80' },
-  research: { bg: 'rgba(59, 130, 246, 0.2)', text: '#60a5fa' },
+  // Technical/code → blue
+  coding: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  workflow: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  research: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  
+  // Priority/urgent → orange
+  polymarket: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
+  stravix: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
+  
+  // Success → green
+  feature: { bg: 'rgba(34, 197, 94, 0.15)', text: '#86efac' },
+  
+  // Error → red
+  bug: { bg: 'rgba(239, 68, 68, 0.15)', text: '#fca5a5' },
+  
+  // General → neutral
+  learnings: { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
+  'side-projects': { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
 };
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
-  Learnings: { bg: 'rgba(139, 92, 246, 0.2)', text: '#a78bfa' },
-  Polymarket: { bg: 'rgba(6, 182, 212, 0.2)', text: '#22d3ee' },
-  'Side Projects': { bg: 'rgba(16, 185, 129, 0.2)', text: '#34d399' },
-  Stravix: { bg: 'rgba(245, 158, 11, 0.2)', text: '#fbbf24' },
-  Coding: { bg: 'rgba(236, 72, 153, 0.2)', text: '#f472b6' },
-  Workflow: { bg: 'rgba(99, 102, 241, 0.2)', text: '#818cf8' },
-  Inbox: { bg: 'rgba(113, 113, 122, 0.2)', text: '#a1a1aa' },
+  // Gradient work categories
+  Strategy: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  Sales: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
+  Marketing: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
+  Product: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  Content: { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
+  Operations: { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
+  Inbox: { bg: 'rgba(113, 113, 122, 0.15)', text: '#a1a1aa' },
 };
 
 function getPriorityDisplay(level: number): { label: string; className: string } {
@@ -111,7 +121,7 @@ export default function TaskCard({ task, onClick, isDragging }: Props) {
         
         {/* Additional tags */}
         {tags.slice(0, 2).map((tag) => {
-          const color = tagColors[tag.toLowerCase()] || { bg: 'rgba(113, 113, 122, 0.2)', text: '#a1a1aa' };
+          const color = tagColors[tag.toLowerCase()] || { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' };
           return (
             <span
               key={tag}

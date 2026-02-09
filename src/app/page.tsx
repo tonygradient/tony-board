@@ -99,13 +99,16 @@ export default function Home() {
         <div className="max-w-[1800px] mx-auto w-full flex items-center gap-2 sm:gap-4">
           {/* Logo & Title */}
           <div className="flex items-center gap-2 shrink-0">
-            <div className="logo text-sm sm:text-base">J</div>
+            <div className="logo text-sm sm:text-base">
+              <span style={{ color: 'var(--primary)' }}>T</span>
+              <span className="logo-accent">O</span>
+            </div>
             <h1 
               className="text-sm sm:text-base font-semibold hidden sm:flex items-center gap-2" 
               style={{ color: 'var(--text-primary)' }}
             >
               <span className="cmd-prefix">$</span>
-              <span>jarvis-board</span>
+              <span>tony-board</span>
               {unreadCount > 0 && (
                 <span className="unread-badge">{unreadCount}</span>
               )}

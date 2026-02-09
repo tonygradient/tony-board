@@ -214,11 +214,11 @@ export default function CalendarView() {
             {/* Legend */}
             <div className="flex items-center gap-4 ml-auto text-xs" style={{ color: 'var(--text-muted)' }}>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded" style={{ background: 'rgba(217, 145, 120, 0.3)', borderLeft: '2px solid var(--primary)' }} />
-                <span>ETA (Jarvis work)</span>
+                <span className="w-3 h-3 rounded" style={{ background: 'rgba(42, 78, 239, 0.2)', borderLeft: '2px solid var(--primary)' }} />
+                <span>ETA (TONY work)</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded" style={{ background: 'rgba(239, 68, 68, 0.3)', borderLeft: '2px solid var(--danger)' }} />
+                <span className="w-3 h-3 rounded" style={{ background: 'rgba(239, 120, 71, 0.2)', borderLeft: '2px solid var(--accent)' }} />
                 <span>Due date</span>
               </span>
             </div>

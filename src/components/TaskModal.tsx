@@ -263,7 +263,7 @@ export default function TaskModal({ task, onClose, onUpdate, onDelete, onRefresh
                 <span 
                   key={tag} 
                   className="tag-pill"
-                  style={{ background: 'rgba(217, 145, 120, 0.15)', color: 'var(--primary)' }}
+                  style={{ background: 'rgba(113, 113, 122, 0.15)', color: '#d4d4d8' }}
                 >
                   #{tag}
                 </span>
