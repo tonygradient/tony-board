@@ -1,249 +1,132 @@
-# Jarvis Board
+# TONY Board
 
-A minimal, fast kanban board built for humans and AI agents to collaborate on tasks. Built with Next.js 15, PostgreSQL, and Tailwind CSS.
+> Task management interface for Gradient's AI team member
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+**TONY** (The Orchestrating Network for You) is Gradient's AI team member. This is his task board — a kanban interface designed for human-AI collaboration.
+
+---
+
+## Overview
+
+TONY Board is a fork of [jarvis-board](https://github.com/ashtalksai/jarvis-board), customized with Gradient's brand identity and design system.
+
+**Key differences from the original:**
+- Gradient brand colors (blue `#1032cf` + orange `#ef7847`)
+- Montserrat typography for professional warmth
+- Comprehensive design system with CSS variables
+- All inline colors moved to design system
+- WCAG AA contrast compliance
+- TONY branding throughout
+
+---
+
+## Design System
+
+See [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md) for the complete design specification.
+
+**Core principles:**
+- **Professional** — Gradient is a B2B agency, this looks the part
+- **Warm** — AI should feel helpful, not cold
+- **Technical** — Monospace details, terminal aesthetic
+- **Accessible** — Proper contrast, readable at all sizes
+
+**Color palette:**
+- **Blue:** Strategic, intelligent, technical work
+- **Orange:** Urgent, human-facing, priority items
+- **Neutral grays:** Most tags and background elements
+- **Semantic colors:** Green (success), red (danger), amber (warning)
+
+---
 
 ## Features
 
-- **Kanban board** — Drag & drop tasks between columns (Backlog → Todo → In Progress → Review → Done)
-- **Calendar view** — See tasks by due date
-- **Activity feed** — Track all changes with timestamps
-- **API-first** — Full REST API for agent/automation access
-- **Multi-user** — Filter by user, supports multiple operators
-- **Priorities** — 4-level priority system (Low → Urgent)
-- **Categories** — Tag tasks by type (work, dev, research, etc.)
-- **Markdown** — Full markdown support in descriptions
-- **Dark theme** — Easy on the eyes
-- **Mobile responsive** — Works on any device
+- **Kanban board** — Drag tasks between Backlog, Doing, Review, On Hold, Done
+- **Calendar view** — See ETAs and due dates
+- **Priority levels** — 1 (low) to 4 (🔥 critical)
+- **Categories** — Strategy, Sales, Marketing, Product, Content, Operations
+- **Tags** — Flexible tagging with design system colors
+- **Activity feed** — Track all changes and updates
+- **Comments** — Discuss tasks with threaded comments
+- **Command palette** — ⌘K quick search and navigation
+- **Authentication** — Session cookies + API bearer tokens
 
-## Quick Start
-
-### Prerequisites
-
-- Node.js 18+
-- PostgreSQL 14+ (or use Docker)
-
-### Local Development
-
-```bash
-# Clone the repo
-git clone https://github.com/yourusername/jarvis-board.git
-cd jarvis-board
-
-# Install dependencies
-npm install
-
-# Setup environment
-cp .env.example .env
-# Edit .env with your database URL and API tokens
-
-# Run database migrations
-npm run migrate
-
-# Start dev server
-npm run dev
-```
-
-Open [http://localhost:3333](http://localhost:3333)
-
-### Docker (Recommended)
-
-```bash
-# Clone and setup env
-git clone https://github.com/yourusername/jarvis-board.git
-cd jarvis-board
-cp .env.example .env
-
-# Generate secure API tokens
-./generate-tokens.sh
-
-# Start everything (app + postgres)
-docker compose up -d --build
-```
-
-Open [http://localhost:3333](http://localhost:3333)
-
-## Configuration
-
-### Environment Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@localhost:5432/jarvis` |
-| `API_TOKENS` | Comma-separated API tokens for authentication | `token1,token2` |
-| `BASIC_AUTH_USER` | (Optional) HTTP Basic Auth username | `admin` |
-| `BASIC_AUTH_PASS` | (Optional) HTTP Basic Auth password | `secret` |
-
-### Generate Secure Tokens
-
-```bash
-# Generate a random 32-byte hex token
-openssl rand -hex 32
-
-# Or use the helper script
-./generate-tokens.sh
-```
-
-## API Reference
-
-All endpoints accept JSON and return JSON. Authentication via `Authorization: Bearer <token>` header.
-
-### Tasks
-
-#### List Tasks
-```bash
-GET /api/tasks
-GET /api/tasks?status=todo
-GET /api/tasks?category=dev
-GET /api/tasks?search=keyword
-GET /api/tasks?userId=ash
-```
-
-#### Get Task
-```bash
-GET /api/tasks/:id
-```
-
-#### Create Task
-```bash
-POST /api/tasks
-Content-Type: application/json
-
-{
-  "title": "Build feature X",
-  "description": "Optional markdown description",
-  "status": "todo",           # backlog|todo|doing|review|done
-  "category": "dev",          # Optional
-  "priority_level": 3,        # 1=Low, 2=Medium, 3=High, 4=Urgent
-  "due_date": "2024-02-15",   # Optional, ISO date
-  "user_id": "ash"            # Optional, defaults to "ash"
-}
-```
-
-#### Update Task
-```bash
-PATCH /api/tasks/:id
-Content-Type: application/json
-
-{
-  "status": "doing",
-  "priority_level": 4
-}
-```
-
-#### Delete Task
-```bash
-DELETE /api/tasks/:id
-```
-
-### Calendar
-
-#### Get Tasks by Date Range
-```bash
-GET /api/tasks/calendar?start=2024-02-01&end=2024-02-28
-```
-
-Returns tasks with `due_date` in the specified range, sorted by date and priority.
-
-### Activities
-
-#### List Activities
-```bash
-GET /api/activities
-GET /api/activities?limit=50
-```
-
-### Quick Examples
-
-```bash
-# List all tasks
-curl -s http://localhost:3333/api/tasks | jq
-
-# Create a task
-curl -X POST http://localhost:3333/api/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Review PR #42", "status": "todo", "priority_level": 3}'
-
-# Move task to done
-curl -X PATCH http://localhost:3333/api/tasks/1 \
-  -H "Content-Type: application/json" \
-  -d '{"status": "done"}'
-
-# Search tasks
-curl -s "http://localhost:3333/api/tasks?search=deploy" | jq
-```
-
-## Project Structure
-
-```
-jarvis-board/
-├── src/
-│   ├── app/              # Next.js App Router
-│   │   ├── api/          # REST API routes
-│   │   ├── calendar/     # Calendar view
-│   │   ├── activities/   # Activity feed
-│   │   └── page.tsx      # Kanban board
-│   ├── components/       # React components
-│   └── lib/              # Database & utilities
-├── migrations/           # SQL migrations
-├── docker-compose.yml    # Docker setup
-└── Dockerfile
-```
-
-## Deployment
-
-### Docker Compose (Self-hosted)
-
-```bash
-# Production deployment
-docker compose up -d --build
-
-# View logs
-docker compose logs -f
-
-# Stop
-docker compose down
-```
-
-### Coolify
-
-See [COOLIFY_DEPLOYMENT.md](COOLIFY_DEPLOYMENT.md) for one-click deployment to Coolify.
-
-### Manual
-
-```bash
-npm run build
-npm start
-```
-
-## Backup & Restore
-
-```bash
-# Create backup
-./backup.sh
-
-# Restore from backup
-./restore.sh
-```
-
-For automated daily backups, add to crontab:
-```bash
-0 2 * * * cd /path/to/jarvis-board && ./backup.sh >> backups/backup.log 2>&1
-```
+---
 
 ## Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
-- **Database:** PostgreSQL with raw SQL
-- **Styling:** Tailwind CSS 4
+- **Database:** SQLite with better-sqlite3
+- **Styling:** Tailwind CSS + CSS variables
+- **Typography:** Montserrat (sans) + JetBrains Mono (mono)
 - **Drag & Drop:** dnd-kit
-- **Markdown:** react-markdown
-
-## License
-
-MIT — do whatever you want with it.
+- **Deployment:** Docker + Coolify
 
 ---
 
-Built for getting shit done. 🚀
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+npm start
+
+# Docker
+docker compose up
+```
+
+**Environment variables:**
+```env
+DATABASE_PATH=./data/tasks.db
+SESSION_SECRET=<random-secret>
+API_TOKENS=token1,token2
+```
+
+---
+
+## API
+
+REST API for external integrations (cron jobs, webhooks, etc.)
+
+**Authentication:** Bearer token in `Authorization` header
+
+**Endpoints:**
+- `GET /api/tasks` — List all tasks
+- `POST /api/tasks` — Create task
+- `GET /api/tasks/:id` — Get task details
+- `PUT /api/tasks/:id` — Update task
+- `DELETE /api/tasks/:id` — Delete task
+- `POST /api/tasks/:id/comments` — Add comment
+- `GET /api/activities` — Activity feed
+
+---
+
+## Deployment
+
+This board is deployed privately for Gradient's internal use.
+
+**Original repo (upstream):** https://github.com/ashtalksai/jarvis-board  
+**This fork:** TONY Board (Gradient branding)
+
+To deploy your own:
+1. Clone this repo
+2. Set environment variables
+3. Run with Docker or Node.js
+4. Configure authentication tokens
+
+---
+
+## Credits
+
+- **Original:** [jarvis-board](https://github.com/ashtalksai/jarvis-board) by Ash
+- **Design system:** Applied by TONY for Gradient
+- **Company:** [Gradient](https://gradient.nl)
+
+---
+
+Built with 🦾 for Gradient's AI team.
