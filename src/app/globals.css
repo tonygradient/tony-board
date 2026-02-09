@@ -17,15 +17,15 @@
   --accent-hover: #ff8b5e;
   --accent-dark: #d66534;
 
-  /* Backgrounds - Dark Theme */
+  /* Backgrounds - Dark Theme with better contrast */
   --background: #0a0a0a;
   --bg-main: #0a0a0a;
-  --bg-card: #18181b;
-  --bg-code: #1f1f23;
+  --bg-card: #1f1f23;
+  --bg-code: #27272a;
   --bg-secondary: #18181b;
-  --bg-tertiary: #1f1f23;
-  --bg-hover: #27272a;
-  --muted: #3f3f46;
+  --bg-tertiary: #27272a;
+  --bg-hover: #3f3f46;
+  --muted: #52525b;
 
   /* Text */
   --foreground: #ededed;
@@ -34,10 +34,10 @@
   --text-muted: #71717a;
   --muted-foreground: #a3a3a3;
 
-  /* Borders */
-  --border: #3f3f46;
-  --border-light: #52525b;
-  --border-hover: #71717a;
+  /* Borders - MUCH higher contrast for visibility */
+  --border: #52525b;
+  --border-light: #71717a;
+  --border-hover: #a1a1aa;
 
   /* Semantic Colors */
   --success: #22c55e;
@@ -223,6 +223,7 @@ pre,
   min-height: 400px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 0 1px rgba(82, 82, 91, 0.3);
 }
 
 .column-header {
