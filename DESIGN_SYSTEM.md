@@ -7,11 +7,11 @@
 
 ## Core Colors
 
-### Primary (Gradient Blue)
-- **Base:** `#1032cf` — Deep blue, strategic, intelligent
-- **Light:** `#2a4eef` — Brighter for hover states
-- **Dark:** `#0c2aa3` — Deeper for pressed states
-- **Contrast text:** `#ffffff` white on blue backgrounds
+### Primary (Gradient Teal/Cyan)
+- **Base:** `#0e5a6b` — Dark teal, strategic, trustworthy
+- **Light:** `#4db8b8` — Turquoise for hover states
+- **Dark:** `#0a4653` — Deeper for pressed states
+- **Contrast text:** `#ffffff` white on teal backgrounds
 
 ### Accent (Gradient Orange)
 - **Base:** `#ef7847` — Warm orange, energetic, human

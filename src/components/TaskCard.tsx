@@ -9,12 +9,12 @@ type Props = {
   isDragging?: boolean;
 };
 
-// Tag colors — TONY Board design system
+// Tag colors — TONY Board design system (Gradient teal/cyan + orange)
 const tagColors: Record<string, { bg: string; text: string }> = {
-  // Technical/code → blue
-  coding: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
-  workflow: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
-  research: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  // Technical/code → teal/cyan
+  coding: { bg: 'rgba(77, 184, 184, 0.15)', text: '#7dd3d3' },
+  workflow: { bg: 'rgba(77, 184, 184, 0.15)', text: '#7dd3d3' },
+  research: { bg: 'rgba(77, 184, 184, 0.15)', text: '#7dd3d3' },
   
   // Priority/urgent → orange
   polymarket: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
@@ -32,11 +32,11 @@ const tagColors: Record<string, { bg: string; text: string }> = {
 };
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
-  // Gradient work categories
-  Strategy: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  // Gradient work categories (teal/cyan for strategic, orange for client-facing)
+  Strategy: { bg: 'rgba(77, 184, 184, 0.15)', text: '#7dd3d3' },
   Sales: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
   Marketing: { bg: 'rgba(239, 120, 71, 0.15)', text: '#ffb088' },
-  Product: { bg: 'rgba(42, 78, 239, 0.15)', text: '#93b4ff' },
+  Product: { bg: 'rgba(77, 184, 184, 0.15)', text: '#7dd3d3' },
   Content: { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
   Operations: { bg: 'rgba(113, 113, 122, 0.15)', text: '#d4d4d8' },
   Inbox: { bg: 'rgba(113, 113, 122, 0.15)', text: '#a1a1aa' },

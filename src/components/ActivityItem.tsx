@@ -6,14 +6,14 @@ type Props = {
   activity: Activity;
 };
 
-// Activity colors — TONY Board design system
+// Activity colors — TONY Board design system (Gradient teal/cyan + orange)
 const actionLabels: Record<string, { label: string; icon: string; color: string }> = {
   'task.create': { label: 'Created task', icon: '✨', color: '#86efac' },
-  'task.update': { label: 'Updated task', icon: '✏️', color: '#93b4ff' },
-  'task.status_change': { label: 'Changed status', icon: '🔄', color: '#93b4ff' },
+  'task.update': { label: 'Updated task', icon: '✏️', color: '#7dd3d3' },
+  'task.status_change': { label: 'Changed status', icon: '🔄', color: '#7dd3d3' },
   'task.delete': { label: 'Deleted task', icon: '🗑️', color: '#fca5a5' },
   'file.write': { label: 'Wrote file', icon: '📝', color: '#ffb088' },
-  'browser.navigate': { label: 'Navigated browser', icon: '🌐', color: '#93b4ff' },
+  'browser.navigate': { label: 'Navigated browser', icon: '🌐', color: '#7dd3d3' },
   'message.send': { label: 'Sent message', icon: '💬', color: '#ffb088' },
 };
 

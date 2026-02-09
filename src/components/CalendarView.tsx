@@ -214,7 +214,7 @@ export default function CalendarView() {
             {/* Legend */}
             <div className="flex items-center gap-4 ml-auto text-xs" style={{ color: 'var(--text-muted)' }}>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded" style={{ background: 'rgba(42, 78, 239, 0.2)', borderLeft: '2px solid var(--primary)' }} />
+                <span className="w-3 h-3 rounded" style={{ background: 'rgba(77, 184, 184, 0.2)', borderLeft: '2px solid var(--primary)' }} />
                 <span>ETA (TONY work)</span>
               </span>
               <span className="flex items-center gap-1.5">

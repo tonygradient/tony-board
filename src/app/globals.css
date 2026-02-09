@@ -4,12 +4,12 @@
 :root {
   /* TONY Board Design System — Gradient Brand */
   
-  /* Primary (Gradient Blue) */
-  --primary: #1032cf;
+  /* Primary (Gradient Teal/Cyan) */
+  --primary: #0e5a6b;
   --primary-foreground: #ffffff;
-  --primary-dark: #0c2aa3;
-  --primary-light: #2a4eef;
-  --ring: #1032cf;
+  --primary-dark: #0a4653;
+  --primary-light: #4db8b8;
+  --ring: #0e5a6b;
 
   /* Accent (Gradient Orange) */
   --accent: #ef7847;
@@ -50,8 +50,8 @@
   /* Priority System */
   --priority-1: #71717a;
   --priority-1-light: #d4d4d8;
-  --priority-2: #2a4eef;
-  --priority-2-light: #93b4ff;
+  --priority-2: #4db8b8;
+  --priority-2-light: #7dd3d3;
   --priority-3: #ef7847;
   --priority-3-light: #ffb088;
   --priority-4: #ef4444;
@@ -191,7 +191,7 @@ pre,
   color: var(--priority-1-light); 
 }
 .priority-2 { 
-  background: rgba(42, 78, 239, 0.2); 
+  background: rgba(77, 184, 184, 0.2); 
   color: var(--priority-2-light); 
 }
 .priority-3 { 
@@ -429,8 +429,8 @@ textarea.input {
   color: #d4d4d8; 
 }
 .status-doing { 
-  background: rgba(42, 78, 239, 0.2); 
-  color: #93b4ff; 
+  background: rgba(77, 184, 184, 0.2); 
+  color: #7dd3d3; 
 }
 .status-review { 
   background: rgba(168, 85, 247, 0.2); 
@@ -490,7 +490,7 @@ textarea.input {
 }
 
 .calendar-task.eta {
-  background: rgba(42, 78, 239, 0.2);
+  background: rgba(77, 184, 184, 0.2);
   color: var(--priority-2-light);
   border-left: 2px solid var(--primary);
 }
@@ -635,7 +635,7 @@ textarea.input {
 }
 
 .comment-avatar.ash {
-  background: rgba(42, 78, 239, 0.2);
+  background: rgba(77, 184, 184, 0.2);
   color: var(--priority-2-light);
 }
 
