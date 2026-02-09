@@ -20,12 +20,12 @@
   /* Backgrounds - Dark Theme */
   --background: #0a0a0a;
   --bg-main: #0a0a0a;
-  --bg-card: #111111;
-  --bg-code: #18181b;
-  --bg-secondary: #111111;
-  --bg-tertiary: #18181b;
-  --bg-hover: #1f1f23;
-  --muted: #262626;
+  --bg-card: #18181b;
+  --bg-code: #1f1f23;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #1f1f23;
+  --bg-hover: #27272a;
+  --muted: #3f3f46;
 
   /* Text */
   --foreground: #ededed;
@@ -35,9 +35,9 @@
   --muted-foreground: #a3a3a3;
 
   /* Borders */
-  --border: #27272a;
-  --border-light: #27272a;
-  --border-hover: #3f3f46;
+  --border: #3f3f46;
+  --border-light: #52525b;
+  --border-hover: #71717a;
 
   /* Semantic Colors */
   --success: #22c55e;
